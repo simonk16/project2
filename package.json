@@ -6,8 +6,12 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint --quiet .",
+<<<<<<< HEAD
     "fix": "eslint --fix .",
     "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
+=======
+    "fix": "eslint --fix ."
+>>>>>>> 972c39e6a6e18413af4eb7d23d72d8057d6709de
   },
   "license": "ISC",
   "dependencies": {
