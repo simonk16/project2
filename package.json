@@ -6,12 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "lint": "eslint --quiet .",
-<<<<<<< HEAD
     "fix": "eslint --fix .",
     "test": "npm run lint && cross-env NODE_ENV=test mocha -u tdd --reporter spec --exit"
-=======
-    "fix": "eslint --fix ."
->>>>>>> 972c39e6a6e18413af4eb7d23d72d8057d6709de
   },
   "license": "ISC",
   "dependencies": {
@@ -19,7 +15,7 @@
     "express": "^4.17.0",
     "express-handlebars": "^3.1.0",
     "mysql2": "^1.6.5",
-    "sequelize": "^5.8.6"
+    "sequelize": "^5.12.3"
   },
   "devDependencies": {
     "chai": "^4.2.0",
