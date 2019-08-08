@@ -6,7 +6,7 @@ USE eht_db;
 
 CREATE TABLE employees(
 id INT NOT NULL auto_increment,
-employee_name VARCHAR(255) not null,
+employeeName VARCHAR(255) not null,
 PRIMARY KEY(id)
 );
 
