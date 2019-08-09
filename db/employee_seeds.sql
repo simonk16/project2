@@ -10,7 +10,7 @@ INSERT INTO employees(employee_name)
 VALUES("Marlon");
 
 INSERT INTO employees(employee_name)
-VALUES("John");
+VALUES("Jon");
 
 INSERT INTO employees(employee_name)
 VALUES("Kahuna");

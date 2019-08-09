@@ -1,6 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
   var Employee = sequelize.define("Employee", {
-    name: DataTypes.STRING
+    employeeName: DataTypes.STRING,
+    updatedAt: DataTypes.DATE,
+    createdAt: DataTypes.DATE
   });
 
   //   Employee.associate = function(models) {
