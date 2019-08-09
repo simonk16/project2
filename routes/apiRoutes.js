@@ -48,7 +48,7 @@ module.exports = function(app) {
   });
 
   // Post Route for saving a new employee
-  app.post("api/employees", function(req, res) {
+  app.post("/api/employees", function(req, res) {
     db.Employee.create(req.body).then(function(employeesData) {
       res.json(employeesData);
     });
@@ -103,7 +103,7 @@ module.exports = function(app) {
   });
 
   // Post Route for saving a new project
-  app.post("api/projects", function(req, res) {
+  app.post("/api/projects", function(req, res) {
     db.Project.create(req.body).then(function(projectsData) {
       res.json(projectsData);
     });
@@ -158,7 +158,7 @@ module.exports = function(app) {
   });
 
   // Post Route for saving new hours data
-  app.post("api/hours", function(req, res) {
+  app.post("/api/hours", function(req, res) {
     db.Hour.create(req.body).then(function(projectsData) {
       res.json(projectsData);
     });
