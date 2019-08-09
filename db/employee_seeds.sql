@@ -1,18 +1,18 @@
 USE eht_db;
 
-INSERT INTO employees(employee_name)
+INSERT INTO employees(employeeName)
 VALUES("Aaron");
 
-INSERT INTO employees(employee_name)
+INSERT INTO employees(employeeName)
 VALUES("Simon");
 
-INSERT INTO employees(employee_name)
+INSERT INTO employees(employeeName)
 VALUES("Marlon");
 
-INSERT INTO employees(employee_name)
-VALUES("John");
+INSERT INTO employees(employeeName)
+VALUES("Jon");
 
-INSERT INTO employees(employee_name)
+INSERT INTO employees(employeeName)
 VALUES("Kahuna");
 
 
