@@ -1,22 +1,18 @@
-USE eht_db;
 
-INSERT INTO employees(employeeName)
+
+Use lkug5f2yavelao76;
+
+INSERT INTO Employees(employeeName)
 VALUES("Aaron");
 
-INSERT INTO employees(employeeName)
+INSERT INTO Employees(employeeName)
 VALUES("Simon");
 
-INSERT INTO employees(employeeName)
+INSERT INTO Employees(employeeName)
 VALUES("Marlon");
 
-INSERT INTO employees(employeeName)
+INSERT INTO Employees(employeeName)
 VALUES("Jon");
 
-INSERT INTO employees(employeeName)
+INSERT INTO Employees(employeeName)
 VALUES("Kahuna");
-
-
-
-
-
-

@@ -1,8 +1,7 @@
-DROP DATABASE IF EXISTS eht_db;
-DROP DATABASE IF EXISTS eht_db;
-CREATE DATABASE eht_db;
+drop database if exists lkug5f2yavelao76;
+create database lkug5f2yavelao76;
 
-USE eht_db;
+USE lkug5f2yavelao76;
 
 CREATE TABLE employees(
 id INT NOT NULL auto_increment,
