@@ -29,11 +29,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(employeesData) {
-      console.log(employeesData);
-      res.json(employeesData);
     })
-    .catch(function(error) {
+      .then(function(employeesData) {
+        console.log(employeesData);
+        res.json(employeesData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -44,21 +45,23 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(employeesData) {
-      console.log(employeesData);
-      res.json(employeesData);
     })
-    .catch(function(error) {
+      .then(function(employeesData) {
+        console.log(employeesData);
+        res.json(employeesData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
 
   // Post Route for saving a new employee
   app.post("/api/employees", function(req, res) {
-    db.Employee.create(req.body).then(function(employeesData) {
-      res.json(employeesData);
-    })
-    .catch(function(error) {
+    db.Employee.create(req.body)
+      .then(function(employeesData) {
+        res.json(employeesData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -69,11 +72,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(employeesData) {
-      console.log(employeesData);
-      res.json(employeesData);
     })
-    .catch(function(error) {
+      .then(function(employeesData) {
+        console.log(employeesData);
+        res.json(employeesData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -84,11 +88,12 @@ module.exports = function(app) {
 
   // Get route for getting all of the projects
   app.get("/api/projects", function(req, res) {
-    db.Project.findAll({}).then(function(projectsData) {
-      console.log(projectsData);
-      res.json(projectsData);
-    })
-    .catch(function(error) {
+    db.Project.findAll({})
+      .then(function(projectsData) {
+        console.log(projectsData);
+        res.json(projectsData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -99,11 +104,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(projectsData) {
-      console.log(projectsData);
-      res.json(projectsData);
     })
-    .catch(function(error) {
+      .then(function(projectsData) {
+        console.log(projectsData);
+        res.json(projectsData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -114,21 +120,23 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(projectsData) {
-      console.log(projectsData);
-      res.json(projectsData);
     })
-    .catch(function(error) {
+      .then(function(projectsData) {
+        console.log(projectsData);
+        res.json(projectsData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
 
   // Post Route for saving a new project
   app.post("/api/projects", function(req, res) {
-    db.Project.create(req.body).then(function(projectsData) {
-      res.json(projectsData);
-    })
-    .catch(function(error) {
+    db.Project.create(req.body)
+      .then(function(projectsData) {
+        res.json(projectsData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -139,11 +147,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(projectsData) {
-      console.log(projectsData);
-      res.json(projectsData);
     })
-    .catch(function(error) {
+      .then(function(projectsData) {
+        console.log(projectsData);
+        res.json(projectsData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -154,11 +163,12 @@ module.exports = function(app) {
 
   // Get route for getting all of the hours logged
   app.get("/api/hours", function(req, res) {
-    db.Hour.findAll({}).then(function(hoursData) {
-      console.log(hoursData);
-      res.json(hoursData);
-    })
-    .catch(function(error) {
+    db.Hour.findAll({})
+      .then(function(hoursData) {
+        console.log(hoursData);
+        res.json(hoursData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -169,11 +179,12 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(hoursData) {
-      console.log(hoursData);
-      res.json(hoursData);
     })
-    .catch(function(error) {
+      .then(function(hoursData) {
+        console.log(hoursData);
+        res.json(hoursData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -184,21 +195,23 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    }).then(function(hoursData) {
-      console.log(hoursData);
-      res.json(hoursData);
     })
-    .catch(function(error) {
+      .then(function(hoursData) {
+        console.log(hoursData);
+        res.json(hoursData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
 
   // Post Route for saving new hours data
   app.post("/api/hours", function(req, res) {
-    db.Hour.create(req.body).then(function(projectsData) {
-      res.json(projectsData);
-    })
-    .catch(function(error) {
+    db.Hour.create(req.body)
+      .then(function(projectsData) {
+        res.json(projectsData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
@@ -209,11 +222,12 @@ module.exports = function(app) {
       where: {
         id: req.body.id
       }
-    }).then(function(hoursData) {
-      console.log(hoursData);
-      res.json(hoursData);
     })
-    .catch(function(error) {
+      .then(function(hoursData) {
+        console.log(hoursData);
+        res.json(hoursData);
+      })
+      .catch(function(error) {
         console.log(error);
       });
   });
