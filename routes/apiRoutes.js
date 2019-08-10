@@ -205,9 +205,9 @@ module.exports = function(app) {
 
   // Put route for updating hours data
   app.put("/api/hours/:id", function(req, res) {
-    db.Hour.update(req.params, {
+    db.Hour.update(req.body, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(hoursData) {
       console.log(hoursData);
