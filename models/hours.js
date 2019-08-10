@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Hour = sequelize.define("Hour", {
-      hourName: DataTypes.STRING,
+      hourName: DataTypes.INTEGER,
       updatedAt: DataTypes.DATE,
       createdAt: DataTypes.DATE
     });
