@@ -32,7 +32,10 @@ module.exports = function(app) {
     }).then(function(employeesData) {
       console.log(employeesData);
       res.json(employeesData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Delete route for deleting an employee by ID
@@ -44,26 +47,35 @@ module.exports = function(app) {
     }).then(function(employeesData) {
       console.log(employeesData);
       res.json(employeesData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Post Route for saving a new employee
   app.post("/api/employees", function(req, res) {
     db.Employee.create(req.body).then(function(employeesData) {
       res.json(employeesData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Put route for updating employee data
   app.put("/api/employees/:id", function(req, res) {
     db.Employee.update(req.body, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(employeesData) {
       console.log(employeesData);
       res.json(employeesData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // ============================================================
@@ -75,7 +87,10 @@ module.exports = function(app) {
     db.Project.findAll({}).then(function(projectsData) {
       console.log(projectsData);
       res.json(projectsData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Get route for getting one project by ID
@@ -87,7 +102,10 @@ module.exports = function(app) {
     }).then(function(projectsData) {
       console.log(projectsData);
       res.json(projectsData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Delete route for deleting an project by ID
@@ -99,26 +117,35 @@ module.exports = function(app) {
     }).then(function(projectsData) {
       console.log(projectsData);
       res.json(projectsData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Post Route for saving a new project
   app.post("/api/projects", function(req, res) {
     db.Project.create(req.body).then(function(projectsData) {
       res.json(projectsData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Put route for updating project data
   app.put("/api/projects/:id", function(req, res) {
     db.Project.update(req.body, {
       where: {
-        id: req.body.id
+        id: req.params.id
       }
     }).then(function(projectsData) {
       console.log(projectsData);
       res.json(projectsData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // ============================================================
@@ -130,7 +157,10 @@ module.exports = function(app) {
     db.Hour.findAll({}).then(function(hoursData) {
       console.log(hoursData);
       res.json(hoursData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Get route for retrieving hour data by ID
@@ -142,7 +172,10 @@ module.exports = function(app) {
     }).then(function(hoursData) {
       console.log(hoursData);
       res.json(hoursData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Delete route for deleting hours data by ID
@@ -154,25 +187,34 @@ module.exports = function(app) {
     }).then(function(hoursData) {
       console.log(hoursData);
       res.json(hoursData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Post Route for saving new hours data
   app.post("/api/hours", function(req, res) {
     db.Hour.create(req.body).then(function(projectsData) {
       res.json(projectsData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 
   // Put route for updating hours data
   app.put("/api/hours/:id", function(req, res) {
-    db.Hour.update(req.body, {
+    db.Hour.update(req.params, {
       where: {
         id: req.body.id
       }
     }).then(function(hoursData) {
       console.log(hoursData);
       res.json(hoursData);
-    });
+    })
+    .catch(function(error) {
+        console.log(error);
+      });
   });
 };
