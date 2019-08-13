@@ -4,6 +4,8 @@ var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var morgan = require("morgan");
 
+require("jquery");
+
 var passport = require("passport");
 var flash = require("connect-flash");
 var express = require("express");
@@ -63,7 +65,8 @@ app.set("view engine", "handlebars");
 
 // Routes
 require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
+require("./public/js/action_page")(app);
+// require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
 

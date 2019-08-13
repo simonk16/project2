@@ -8,6 +8,11 @@
 	<style>
 		body 		{ padding-top:80px; word-wrap:break-word; }
 	</style>
+	<script
+	src="https://code.jquery.com/jquery-3.4.1.min.js"
+	integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+	crossorigin="anonymous"></script>
+	<script src="../routes/apiRoutes.js"></script>
 </head>
 <body>
 <div class="container">
@@ -29,6 +34,28 @@
 						<strong>username</strong>: <%= user.username %><br>
 						<strong>password</strong>: <%= user.password %>
 					</p>
+
+			</div>
+		</div>
+
+	</div>
+
+	<div class="row">
+
+		<!-- User Control Panel -->
+		<div class="col-sm-6">
+			<div class="well">
+				<h3><span class="fa fa-user"></span> Control Panel</h3>
+
+				<form method="POST" id="choiceForm" action="../public/js/action_page.js">
+					<input id="0" type="radio" name="selectedAction" value="logNewProject" checked> 
+					<label for="0">Log hours to a new project</label>
+					<br>
+					<input id="1" type="radio" name="selectedAction" value="logExistingProject"> 
+					<label for="1">Update hours on an existing project</label>
+					<br>
+					<input type="submit" value="Submit">
+				  </form>
 
 			</div>
 		</div>

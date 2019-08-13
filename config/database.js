@@ -1,10 +1,10 @@
 // config/database.js
 module.exports = {
   connection: {
-    host: "localhost",
-    user: "root",
-    password: "Burbank!123"
+    host: "t89yihg12rw77y6f.cbetxkdyhwsb.us-east-1.rds.amazonaws.com",
+    user: "qthjhva2lugpvwqu",
+    password: "ye7ad7s4nhpet0g4"
   },
-  database: "userDB",
-  users_table: "users"
+  database: "lkug5f2yavelao76",
+  users_table: "employees"
 };
