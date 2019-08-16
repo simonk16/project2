@@ -3,9 +3,6 @@ var session = require("express-session");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var morgan = require("morgan");
-
-require("jquery");
-
 var passport = require("passport");
 var flash = require("connect-flash");
 var express = require("express");
@@ -16,6 +13,7 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
+
 require("./config/passport")(passport); // pass passport for configuration
 app.use(morgan("dev")); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -25,6 +23,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
   res.set(
     "Cache-Control",
@@ -47,7 +46,9 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-require("./routes/routes.js")(app, passport); // load our routes and pass in our app and fully configured passport
+require("./routes/apiRoutes")(app);
+require("./routes/routes")(app, passport); // load our routes and pass in our app and fully configured passport
+require("./routes/anotherRoute")(app);
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -64,9 +65,11 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./public/js/action_page")(app);
+// require("./routes/apiRoutes")(app);
+// require("./public/js/action_page")(app);
 // require("./routes/htmlRoutes")(app);
+
+
 
 var syncOptions = { force: false };
 
