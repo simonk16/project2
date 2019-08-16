@@ -3,9 +3,6 @@ var session = require("express-session");
 var cookieParser = require("cookie-parser");
 var bodyParser = require("body-parser");
 var morgan = require("morgan");
-
-require("jquery");
-
 var passport = require("passport");
 var flash = require("connect-flash");
 var express = require("express");
@@ -25,6 +22,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
+
 app.use(function(req, res, next) {
   res.set(
     "Cache-Control",
@@ -47,7 +45,9 @@ app.use(passport.session()); // persistent login sessions
 app.use(flash()); // use connect-flash for flash messages stored in session
 
 // routes ======================================================================
-require("./routes/routes.js")(app, passport); // load our routes and pass in our app and fully configured passport
+require("./routes/apiRoutes")(app);
+require("./routes/routes")(app, passport); // load our routes and pass in our app and fully configured passport
+require("./routes/anotherRoute")(app);
 
 // Middleware
 app.use(express.urlencoded({ extended: false }));
@@ -64,8 +64,8 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Routes
-require("./routes/apiRoutes")(app);
-require("./public/js/action_page")(app);
+// require("./routes/apiRoutes")(app);
+// require("./public/js/action_page")(app);
 // require("./routes/htmlRoutes")(app);
 
 var syncOptions = { force: false };
@@ -77,7 +77,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
