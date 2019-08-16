@@ -1,4 +1,3 @@
-USE eht_db;
 
 INSERT INTO projects(project_title)
 VALUES("A");
