@@ -3,5 +3,6 @@ module.exports = function(app) {
   app.post("/submit-form", function(req, res) {
     var $formData = req.body.selectedAction;
     console.log($formData + "hi rob");
+    res.status(200);
   });
 };
