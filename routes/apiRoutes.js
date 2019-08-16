@@ -241,11 +241,10 @@ module.exports = function(app) {
         projectName: req.body.projectName
       }).then(function() {
         res.send("Success");
-      });;
-    });;
-  });;
+      });
+    });
+  });
   // Form Route for profile.handlebars line 35
-
 
   app.get("/api/data", function(req, res) {
     db.sequelize
