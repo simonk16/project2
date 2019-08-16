@@ -5,10 +5,11 @@ module.exports = function(sequelize, DataTypes) {
     createdAt: DataTypes.DATE
   });
 
-  //   Hour.associate = function(models) {
-  //     Hour.hasMany(models.Post, {
-  //       onDelete: "cascade"
-  //     });
-  //   };
+  Hour.associate = function(models) {
+    Hour.belongsTo(models.Project, {
+      onDelete: "cascade"
+    });
+  };
+
   return Hour;
 };
