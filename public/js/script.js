@@ -1,5 +1,5 @@
 $("#submitButton").on("click", function(event) {
-//   event.preventDefault();
+  event.preventDefault();
   console.log($("input[value='logNewProject']:checked").val());
   if ($("input[value='logNewProject']:checked").val()) {
     $("#myNewModal").modal("toggle");
