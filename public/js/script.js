@@ -7,4 +7,3 @@ $("#submitButton").on("click", function(event) {
     $("#myExistingModal").modal("toggle");
   }
 });
-
