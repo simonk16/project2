@@ -3,7 +3,7 @@
 // ****************************************************************
 
 var db = require("../models/");
-
+// var modal = require("../public/modals/")
 // Routes
 
 module.exports = function(app) {
@@ -231,5 +231,17 @@ module.exports = function(app) {
         console.log(error);
       });
   });
+  app.post("/api/form-data", function(req, res) {
+    console.log(req.body);
+    db.Hour.create({
+      hourName: req.body.hoursWorked
+    }).then(function() {
+      db.Project.create({
+        projectName: req.body.projectName
+      }).then(function() {
+        res.send("Success");
+      });;
+    });;
+  });;
   // Form Route for profile.handlebars line 35
 };
