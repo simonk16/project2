@@ -2,7 +2,7 @@
 // apiRoutes.js file
 // ****************************************************************
 
-var db = require("../models");
+var db = require("../models/");
 
 // Routes
 
@@ -231,4 +231,5 @@ module.exports = function(app) {
         console.log(error);
       });
   });
+  // Form Route for profile.handlebars line 35
 };

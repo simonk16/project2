@@ -4,7 +4,7 @@ module.exports = function(app, passport) {
   // HOME PAGE (with login links) ========
   // =====================================
   app.get("/", function(req, res) {
-    res.render("index.ejs"); // load the index.ejs file
+    res.render("index.handlebars"); // load the index.handlebars (formerly .ejs) file
   });
 
   // =====================================
@@ -13,7 +13,9 @@ module.exports = function(app, passport) {
   // show the login form
   app.get("/login", function(req, res) {
     // render the page and pass in any flash data if it exists
-    res.render("login.ejs", { message: req.flash("loginMessage") });
+    res.render("login.handlebars", {
+      message: req.flash("loginMessage")
+    });
   });
 
   // process the login form
@@ -42,7 +44,9 @@ module.exports = function(app, passport) {
   // show the signup form
   app.get("/signup", function(req, res) {
     // render the page and pass in any flash data if it exists
-    res.render("signup.ejs", { message: req.flash("signupMessage") });
+    res.render("signup.handlebars", {
+      message: req.flash("signupMessage")
+    });
   });
 
   // process the signup form
@@ -61,7 +65,7 @@ module.exports = function(app, passport) {
   // we will want this protected so you have to be logged in to visit
   // we will use route middleware to verify this (the isLoggedIn function)
   app.get("/profile", isLoggedIn, function(req, res) {
-    res.render("profile.ejs", {
+    res.render("profile.handlebars", {
       user: req.user // get the user out of session and pass to template
     });
   });
