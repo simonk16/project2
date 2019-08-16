@@ -231,6 +231,7 @@ module.exports = function(app) {
         console.log(error);
       });
   });
+
   app.post("/api/form-data", function(req, res) {
     console.log(req.body);
     db.Hour.create({
@@ -244,4 +245,17 @@ module.exports = function(app) {
     });;
   });;
   // Form Route for profile.handlebars line 35
+
+
+  app.get("/api/data", function(req, res) {
+    db.sequelize
+      .query(
+        "select e.employeeName, p.projectName, h.hourName from Employees e inner join Projects p on e.id = p.id inner join Hours h on p.id = h.id"
+      )
+      .then(function(data) {
+        res.json(data);
+      });
+  });
+
+
 };

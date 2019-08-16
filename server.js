@@ -13,7 +13,6 @@ var db = require("./models");
 var app = express();
 var PORT = process.env.PORT || 3000;
 
-
 require("./config/passport")(passport); // pass passport for configuration
 app.use(morgan("dev")); // log every request to the console
 app.use(cookieParser()); // read cookies (needed for auth)
@@ -69,8 +68,6 @@ app.set("view engine", "handlebars");
 // require("./public/js/action_page")(app);
 // require("./routes/htmlRoutes")(app);
 
-
-
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
@@ -80,7 +77,7 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync().then(function() {
+db.sequelize.sync({ force: true }).then(function() {
   app.listen(PORT, function() {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
