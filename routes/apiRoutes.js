@@ -249,9 +249,14 @@ module.exports = function (app) {
   app.get("/api/data", function (req, res) {
     db.sequelize
       .query(
-        "select e.employeeName, p.projectName, h.hourName from Employees e inner join Projects p on e.id = p.id inner join Hours h on p.id = h.id"
+        "select e.employeeName, p.projectName, h.hourName from Employees e inner join Projects p on e.id = p.employeeId inner join Hours h on p.id = h.projectId where e.id =" + req.user.id,{ type: db.Sequelize.QueryTypes.SELECT }
       )
+<<<<<<< HEAD
       .then(function (data) {
+=======
+      .then(function(data) {
+        console.log(data)
+>>>>>>> master
         res.json(data);
       });
   });
