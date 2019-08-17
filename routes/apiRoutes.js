@@ -132,7 +132,10 @@ module.exports = function(app) {
 
   // Post Route for saving a new project
   app.post("/api/projects", function(req, res) {
-    db.Project.create(req.body)
+    db.Project.create({
+      projectName: req.body.projectName,
+      employeeId: req.user.id
+    })
       .then(function(projectsData) {
         res.json(projectsData);
       })
@@ -234,11 +237,13 @@ module.exports = function(app) {
 
   app.post("/api/form-data", function(req, res) {
     console.log(req.body);
-    db.Hour.create({
-      hourName: req.body.hoursWorked
-    }).then(function() {
-      db.Project.create({
-        projectName: req.body.projectName
+    db.Project.create({
+      projectName: req.body.projectName,
+      EmployeeId: req.user.id
+    }).then(function(dat) {
+      db.Hour.create({
+        hourName: req.body.hoursWorked,
+        ProjectId: dat.id
       }).then(function() {
         res.redirect("/profile");
       });
@@ -254,7 +259,7 @@ module.exports = function(app) {
         { type: db.Sequelize.QueryTypes.SELECT }
       )
       .then(function(data) {
-        console.log(data);;
+        console.log(data);
         res.json(data);
       });
   });

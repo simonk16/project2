@@ -24,6 +24,7 @@ $("#updateButton").on("click", function(event) {
   var hoursWorked = $("#hoursWorked").val();
   console.log(hoursWorked);
 });
+
 $.get("/api/data", function(data) {
   var svgWidth = 500,
     svgHeight = 300,
