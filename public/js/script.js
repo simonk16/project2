@@ -22,7 +22,7 @@ var g = svg.append("g")
 var color = d3.scaleOrdinal(d3.schemeCategory10);
 
 var pie = d3.pie().value(function(d) {
-    return d.hourName;
+    return d.hour;
 });
 
 var path = d3.arc()
