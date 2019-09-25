@@ -254,7 +254,7 @@ module.exports = function(app) {
   app.get("/api/data", function(req, res) {
     db.sequelize
       .query(
-        "select e.employeeName, p.projectName, h.hourName from Employees e inner join Projects p on e.id = p.employeeId inner join Hours h on p.id = h.projectId where e.id =" +
+        "select e.employeeName, p.projectName, h.hourName, h.ProjectId from Employees e inner join Projects p on e.id = p.employeeId inner join Hours h on p.id = h.projectId where e.id =" +
           req.user.id,
         { type: db.Sequelize.QueryTypes.SELECT }
       )
@@ -262,5 +262,18 @@ module.exports = function(app) {
         console.log(data);
         res.json(data);
       });
+  });
+
+  // post-form-control
+  app.put("/api/update-data", function(req, res) {
+    console.log(req.body);
+    db.Hour.update(
+      { hoursName: hoursName + req.body.hoursAmount },
+      {
+        where: {
+          ProjectId: req.body.projectName
+        }
+      }
+    );
   });
 };

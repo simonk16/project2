@@ -73,7 +73,7 @@
 					<h4 class="modal-title">Log Initial Project Hours</h4>
 				</div>
 				<div class="modal-body">
-					<form action="/api/form-data" method="POST">
+					<form action="/api/form-data-control" method="post">
 						<div class="form-group">
 							<label>Project Name</label>
 							<input type="" class="form-control" id="projectName" name="projectName"
@@ -100,7 +100,7 @@
 <div class="container">
 	<div class="row">
 		<div class="col-md-6">
-			<div class="modal" tabindex="-1" role="dialog">
+			<div id="myExistingModal" class="modal" tabindex="-1" role="dialog">
 				<div class="modal-dialog" role="document">
 					<div class="modal-content">
 						<div class="modal-header">
@@ -110,13 +110,18 @@
 							</button>
 						</div>
 						<div class="modal-body">
-							<input id="projectSelect" type="text"></input>
-							<input id="hoursAmount" type="text"></input>
-							<button>Submit</button>
+							<form action="/api/update-data/" id="choicesForm">
+							{{!-- <input id="projectSelect" name="projectSelect" type="select"></input> --}}
+							<input id="hoursAmount" name="hoursAmount" type="text"></input>
+							<button id="updateButton">Submit</button>
+							</form>
+							<select id="selectEl" name="choiceList" form="choicesForm">
+
+							</select>
 						</div>
 						<div class="modal-footer">
-							<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-							<button type="button" class="btn btn-primary">Save changes</button>
+							{{!-- <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+							<button type="button" class="btn btn-primary">Save changes</button> --}}
 						</div>
 					</div>
 				</div>

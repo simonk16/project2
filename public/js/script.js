@@ -1,28 +1,33 @@
-$("#submitButton").on("click", function(event) {
-  // event.preventDefault();
-  console.log($("input[value='logNewProject']:checked").val());
-  if ($("input[value='logNewProject']:checked").val()) {
-    $("#myNewModal").modal("toggle");
-  } else if ($("input[value='logExistingProject']:checked").val()) {
-    $("#myExistingModal").modal("toggle");
-    $.get("/api/projects", function(response) {
-      console.log("res is ........." + response);
-      var projectsArr = response;
-      for (var i = 0; i < projectsArr.length; i++) {
-        console.log(i);
-        var projectsOption = projectsArr[i].projectName;
-        $("select").append("<li>" + projectsOption + "</li>");
-      }
-    });
-  }
-});
+$(document).ready(function() {
+  $("#submitButton").on("click", function() {
+    // event.preventDefault();
+    console.log($("input[value='logNewProject']:checked").val());
+    if ($("input[value='logNewProject']:checked").val()) {
+      $("#myNewModal").modal("toggle");
+    } else if ($("input[value='logExistingProject']:checked").val()) {
+      $("#myExistingModal").modal("toggle");
+      $.get("/api/projects", function(response) {
+        console.log("res is ........." + response);
+        var projectsArr = response;
+        for (var i = 0; i < projectsArr.length; i++) {
+          console.log(i);
+          var projectsOption =
+            projectsArr[i].projectName + ": " + projectsArr[i].id;
+          $("#selectEl").append("<option>" + projectsOption + "</option>");
+        }
+      });
+    }
+  });
 
-$("#updateButton").on("click", function(event) {
-  event.preventDefault();
-  var selectedProject = $("<option>");
-  console.log(selectedProject);
-  var hoursWorked = $("#hoursWorked").val();
-  console.log(hoursWorked);
+  $("#updateButton").on("click", function() {
+    var selectedProject = $("#selectEl").val();
+    console.log(selectedProject);
+    var hoursWorked = $("#hoursAmount").val();
+    console.log(hoursWorked);
+    $.put("/api/update-data/", function(response) {
+      console.log(response);
+    });
+  });
 });
 
 $.get("/api/data", function(data) {
